@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        body {
+            background-color: #eae6da; 
+            color: #5d5048; 
+        }
+
+        .navbar {
+            background-color: #8d6c5c; 
+            color: #fff; 
+            height: 70px; 
+        }
+
+        .navbar-brand img {
+            height: 50px; 
+            margin-right: 10px;
+        }
+
+        .form-container {
+            border: 2px solid #8d6c5c; 
+            padding: 20px;
+            border-radius: 10px; 
+            margin-top: 20px;
+        }
+
+        .btn-marron {
+            background-color: #8d6c5c;
+            border-color: #8d6c5c;
+            color: #fff;
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #8d6c5c; /* Couleur marron */
+        }
+
+        /* Ajoutez une marge supérieure au bouton */
+        .btn-container {
+            margin-top: 15px;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">
+            <img src="{{ asset("media/logo.png") }}">
+        </a>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6 form-container">
+                <h1 class="form-title">Créer un compte</h1>
+                {{ form_start(form) }}
+                {{ form_row(form.username, {'attr': {'class': 'form-control', 'placeholder': 'Username'}}) }}
+                {{ form_row(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
+                {{ form_row(form.plainPassword.first, {'attr': {'class': 'form-control', 'placeholder': 'Password'}}) }}
+                {{ form_row(form.plainPassword.second, {'attr': {'class': 'form-control', 'placeholder': 'Confirm Password'}}) }}
+                <div class="text-center btn-container">
+                    <button type="submit" class="btn btn-marron">Suivant</button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

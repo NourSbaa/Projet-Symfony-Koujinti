@@ -1,0 +1,91 @@
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        body {
+            background-image: url('{{ asset('media/m.png') }}');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-color: #eae6da;
+            color: #5d5048;
+        }
+
+        .navbar {
+            background-color: #8d6c5c;
+            color: #fff;
+        }
+
+        .navbar-brand img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            color: #fff;
+        }
+
+        .card {
+            margin-top: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #8d6c5c;
+            color: #fff;
+            text-align: center;
+            font-size: 36px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-body p {
+            font-size: 24px;
+        }
+
+        .btn-danger {
+            background-color: #b56549;
+            border-color: #b56549;
+        }
+
+        .btn-danger:hover {
+            background-color: #944832;
+            border-color: #944832;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <nav class="navbar">
+        <a class="navbar-brand" href="http://localhost/Projet/public/index.php/home1">
+            <img src="{{ asset('media/logo.png') }}">
+        </a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2 style="font-size: 36px; text-align: center;">{{ ingredient.libelle }}</h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p style="font-size: 24px;"><strong>Quantité:</strong> {{ ingredient.quantite }} Kg/L</p>
+                        <p style="font-size: 24px;"><strong>Cout:</strong> {{ ingredient.cout }} Dnt</p>
+                        <p style="font-size: 24px;"><strong>Menu:</strong> {{ ingredient.Menu.titre }}</p>
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+            </div>
+
+            <a href="{{ path('ingredient_list') }}" class="btn btn-danger">Retour</a>
+        </div>
+    </div>
+{% endblock %}
